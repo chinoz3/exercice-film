@@ -1,0 +1,83 @@
+
+const form = document.querySelector("#formulaire")
+console.log(form)
+const namedom = document.querySelector("#name")
+console.log(namedom)
+const descriptiondom = document.querySelector("#description")
+console.log(descriptiondom)
+const imagedom = document.querySelector("#image")
+console.log(imagedom)
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
+  const name = namedom.value
+  console.log("name", name)
+  const description = descriptiondom.value
+  console.log("description", description)
+  const image = imagedom.value
+  console.log("image", image)
+
+})
+const buttonDom = document.querySelector("#addJokeButton")
+const jokesDom = document.querySelector("#jokes")
+console.log(jokesDom)
+const createCardFromJoke = (joke) => {
+    const card = document.createElement("div")
+    card.classList.add("joke-container")
+    const jokeTest = document.createElement("p")
+    jokeTest.innerText = joke
+    console.log(card)
+    console.log(jokeText)
+    card.appendChild(jokeText)
+    console.log(card)
+    jokesDom.appendChild(card)
+}
+const fetchAndAddJoke = () => {
+    fetch("https://api.chucknorris.io/jokes/random?category=dev")
+    .then((response) => response.json())
+    .then(data => createCardFromJoke(data.value))
+}
+buttonDom.addEventListener("click", () => {
+    fetchAndAddJoke()
+})
+
+//Liste des elements du DOM
+//pt2
+// const buttondom = document.querySelector("#addJokeButton")
+// const jokesdom = document.querySelector("#jokes")
+//     console.log(jokesdom)
+// const createCardFromJoke = (joke) => {
+//    const card = document.createElement("div")
+//     card.classList.add("joke-container")
+//     const JokeText = document.createElement("p")
+//     JokeText.innerText = joke
+//     console.log(JokeText)
+//     card.appendChild(JokeText)
+//     console.log(card)
+//     jokesdom.appendChild(card)
+// }
+// const fetchandaadjoke = () => {
+//     fetch("https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US")
+//     const fetchAndAddJoke = () => {
+//         fetch("https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US")
+//         .then((response) => response.json())
+//         .then(data => createCardFromJoke(data.value))
+//     }
+//     buttonDom.addEventListener("click", () => {
+//         fetchAndAddJoke()
+//     })}
+    // const url = 'https://streaming-availability.p.rapidapi.com/countries';
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+    //         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+    //     }
+    // };
+    
+    // try {
+    //     const response = await fetch(url, options);
+    //     const result = await response.text();
+    //     console.log(result);
+    // } catch (error) {
+    //     console.error(error);
+    // }
